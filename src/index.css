@@ -7,6 +7,9 @@
   margin: 0 auto;
   padding: 0 16px;
 } */
+body {
+  background-color: #f2d5da;
+}
 .container {
   max-width: 1160px;
   margin: 0 auto;
@@ -38,6 +41,10 @@ main .box-bottom {
   min-height: 100px;
   border: 1px solid orange;
 }
+
+.inherit {
+  min-height: inherit;
+}
 @keyframes fall {
   0% {
     transform: translateY(-50px);
@@ -53,4 +60,17 @@ main .box-bottom {
     display: inline-block;
     animation: fall 2s ease forwards;
   }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 38s linear infinite;
 }

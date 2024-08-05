@@ -10,7 +10,8 @@ module.exports = {
         pinkBold: "#f3d2c9",
         orang: "#F9E3CF",
         purpleBold: "#9079A8",
-        gray: "#333333",
+        gray: "#878787",
+        banana: "#f8f4ba",
       },
       fontFamily: {
         handwriting: ['"Playwright België Walloon"', "cursive"],
