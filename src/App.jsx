@@ -36,7 +36,6 @@ function App() {
     "/icons/tailwind-svgrepo-com.svg",
     "/icons/typescript-svgrepo-com.svg",
     "/icons/vscode-svgrepo-com.svg",
-    "/icons/ball.svg",
   ];
   const handleFormSubmit = (e) => {
     e.preventDefault();
