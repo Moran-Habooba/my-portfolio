@@ -426,7 +426,7 @@ function App() {
         className="min-h-screen bg-gray-800 py-6 flex flex-col justify-center sm:py-12"
         ref={contactsRef}
       >
-        <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div className="relative py-3 sm:max-w-xl sm:mx-auto  max-w-xs mx-4">
           <div className="absolute inset-0 bg-gradient-to-r from-purpleBold to-purpleBold shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
           <div className="text-white relative px-4 py-10 bg-banana shadow-lg sm:rounded-3xl sm:p-20">
             <div className="text-center pb-6 text-purpleBold font-bold">
@@ -450,7 +450,8 @@ function App() {
               />
 
               <input
-                className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+                // className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow mb-4 appearance-none border rounded h-32 w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 type="email"
                 placeholder="Email"
                 name="email"
