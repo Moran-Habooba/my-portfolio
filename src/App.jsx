@@ -93,13 +93,19 @@ function App() {
     <>
       <nav
         className="bg-purpleBold text-white font-bold min-h-[50px] text-gray-100"
-        ref={homeRef}
+        // ref={homeRef}
       >
-        <div className="flex flex-wrap justify-between mx-8 ">
+        {/* <div className="flex flex-wrap justify-between mx-8 ">
           <div className=" w-full lg:w-1/2 text-left mt-4 ">
             Moran Habooba🩷Full-stack developer
           </div>
           <div className=" w-full lg:w-1/2 text-right mt-4">בס"ד</div>
+        </div> */}
+        <div className="flex flex-wrap justify-between mx-8">
+          <div className="flex w-full justify-between items-center mt-4">
+            <div className="text-left">Moran Habooba🩷Full-stack developer</div>
+            <div className="text-right">בס"ד</div>
+          </div>
         </div>
 
         <div className="container center min-h-[50px] font-handwriting text-2xl  ">
