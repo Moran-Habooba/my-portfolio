@@ -1,6 +1,6 @@
 import "./App.css";
 // import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from "sweetalert2";
 import ProjectsList from "./ProjectsList";
@@ -10,6 +10,11 @@ function App() {
   const homeRef = useRef(null);
   const ProjectsRef = useRef(null);
   const contactsRef = useRef(null);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -76,7 +81,14 @@ function App() {
         });
       });
   };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
 
+  const isFormValid = () => {
+    return formValues.name && formValues.email && formValues.message;
+  };
   return (
     <>
       <nav
@@ -136,7 +148,7 @@ function App() {
       </header>
       <div>
         <div className="bg-pink min-h-[300px] center flex flex-col items-center justify-center pb-10 ">
-          <h2 className="center text-black text-3xl py-3 font-handwriting ">
+          <h2 className="center text-black text-3xl  sm:text-2xl py-3 font-handwriting ">
             Welcome to my portfolio. Take a look at some of my projects below.
           </h2>
           <button className="border rounded-md p-2 bg-purple border-transparent text-black text-[20px] mt-4 font-handwriting hover:bg-purpleBold hover:text-white ">
@@ -447,14 +459,18 @@ function App() {
                 type="text"
                 placeholder="Name"
                 name="name"
+                value={formValues.name}
+                onChange={handleInputChange}
               />
 
               <input
                 // className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
-                className="shadow mb-4 appearance-none border rounded h-32 w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow mb-4 appearance-none border rounded  w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 type="email"
                 placeholder="Email"
                 name="email"
+                value={formValues.email}
+                onChange={handleInputChange}
               />
 
               <textarea
@@ -462,19 +478,29 @@ function App() {
                 type="text"
                 placeholder="Type your message here..."
                 name="message"
+                value={formValues.message}
+                onChange={handleInputChange}
                 // style={"height: 121px;"}
               ></textarea>
 
               <div className="flex justify-between">
                 <input
-                  className="shadow bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className={`shadow ${
+                    isFormValid()
+                      ? "bg-indigo-500 hover:bg-indigo-700"
+                      : "bg-indigo-500 cursor-not-allowed"
+                  } text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                   type="submit"
-                  value="Send "
+                  value="Send"
+                  disabled={!isFormValid()}
                 />
                 <input
                   className="shadow bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="reset"
-                  value="reset "
+                  value="Reset"
+                  onClick={() => {
+                    setFormValues({ name: "", email: "", message: "" });
+                  }}
                 />
               </div>
               <div className="mt-8 flex justify-between space-x-1 text-[20px]">
