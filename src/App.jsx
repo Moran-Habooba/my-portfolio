@@ -148,7 +148,7 @@ function App() {
       </header>
       <div>
         <div className="bg-pink min-h-[300px] center flex flex-col items-center justify-center pb-10 ">
-          <h2 className="center text-black text-3xl  sm:text-2xl py-3 font-handwriting ">
+          <h2 className="center text-black text-2xl md:text-3xl   py-3 font-handwriting ">
             Welcome to my portfolio. Take a look at some of my projects below.
           </h2>
           <button className="border rounded-md p-2 bg-purple border-transparent text-black text-[20px] mt-4 font-handwriting hover:bg-purpleBold hover:text-white ">
