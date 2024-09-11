@@ -7,7 +7,7 @@ import ProjectsList from "./ProjectsList";
 
 function App() {
   const aboutRef = useRef(null);
-  const homeRef = useRef(null);
+  // const homeRef = useRef(null);
   const ProjectsRef = useRef(null);
   const contactsRef = useRef(null);
   const [formValues, setFormValues] = useState({
@@ -15,6 +15,8 @@ function App() {
     email: "",
     message: "",
   });
+  // Disable right-click context menu
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -157,12 +159,16 @@ function App() {
           <h2 className="center text-black text-2xl md:text-3xl   py-3 font-handwriting ">
             Welcome to my portfolio. Take a look at some of my projects below.
           </h2>
-          <button className="border rounded-md p-2 bg-purple border-transparent text-black text-[20px] mt-4 font-handwriting hover:bg-purpleBold hover:text-white ">
+
+          <button
+            className="border rounded-md p-2 bg-purple border-transparent text-black text-[20px] mt-4 font-handwriting hover:bg-purpleBold hover:text-white"
+            onClick={() => scrollToSection(ProjectsRef)}
+          >
             Projects
           </button>
+
           <hr className="border-purpleBold my-4 w-full" ref={aboutRef} />
           <div className="text-left mt-10 px-10  text-black">
-            {/* <h1 className="text-4xl mb-1 animate-fall">Nice to meet you</h1> */}
             <h1 className="text-4xl mb-1 animate-fall font-bold font-handwriting">
               Nice to meet you
             </h1>
@@ -213,233 +219,6 @@ function App() {
         </div>
       </main>
       <ProjectsList />
-      {/* <div className=" my-10 center">
-        <div className=" flex space-x-8 ">
-          <div className="max-w-sm rounded-lg  overflow-hidden border-2 border-white shadow-lg ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/1_Im0.jpeg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm rounded-lg  overflow-hidden  border-2 border-white shadow-lg  ">
-            <img
-              className=" h-40 w-full"
-              src="/image project/51okr7JU0KL.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm  rounded-lg overflow-hidden  border-2 border-white shadow-lg  ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/Calculator-project.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm rounded-lg  overflow-hidden border-2 border-white shadow-lg ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/1_Im0.jpeg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-        </div>
-      </div> */}
-      {/* ------------------------------------------------ */}
-      {/* <div className=" my-10 center">
-        <div className=" flex space-x-8 ">
-          <div className="max-w-sm rounded-lg  overflow-hidden border-2 border-white shadow-lg ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/1_Im0.jpeg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm rounded-lg  overflow-hidden  border-2 border-white shadow-lg  ">
-            <img
-              className=" h-40 w-full"
-              src="/image project/51okr7JU0KL.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm  rounded-lg overflow-hidden  border-2 border-white shadow-lg  ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/Calculator-project.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-          <div className="max-w-sm rounded-lg  overflow-hidden border-2 border-white shadow-lg ">
-            <img
-              className=" h-40  w-full"
-              src="/image project/1_Im0.jpeg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4 bg-[#CB8CB6]">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <p className="text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            <button class="bg-purpleBold hover:bg-purple text-white font-bold my-2 py-2 px-4 rounded-full">
-              Try it out
-            </button>
-            <span className="center my-2">
-              <a
-                className="text-blueviolet font-bold hover:underline"
-                href="https://github.com/Moran-Habooba/shabbat-time"
-                target="_blank"
-              >
-                <i className="bi bi-github"></i> Github Repo
-              </a>
-            </span>
-          </div>
-        </div>
-      </div> */}
-      {/* ************************************** */}
-
       <div
         className="min-h-screen bg-gray-800 py-6 flex flex-col justify-center items-center  sm:py-12"
         ref={contactsRef}
